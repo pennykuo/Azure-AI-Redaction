@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <h1>Embed both insights and player widgets</h1>
+    <div id="container" class="widget-container"></div>
+    <iframe
+      width="1280"
+      height="720"
+      src="https://www.videoindexer.ai/embed/player/00000000-0000-0000-0000-000000000000/b073f41919?locale=en"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+    <script>
+      function onPackageLoad() {
+        const config = {
+          accountId: "00000000-0000-0000-0000-000000000000",
+          videoId: "b073f41919",
+        };
+        let widget = new window.vi.widgets.Insights(
+          "container",
+          {
+            height: 780,
+            width: 580,
+          },
+          config
+        );
+
+        widget.render();
+      }
+    </script>
+    <script
+    src="https://unpkg.com/@azure/video-indexer-widgets@latest/dist/assets/mediator.js"
+  ></script>
+    <script
+      src="https://unpkg.com/@azure/video-indexer-widgets@latest/dist/global.min.js"
+      onload="onPackageLoad()"
+    ></script>
+  </body>
+</html>

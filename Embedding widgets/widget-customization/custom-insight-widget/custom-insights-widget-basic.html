@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <h1>Video Indexer insights widget</h1>
+    <div id="container" class="widget-container"></div>
+    <script>
+      function onPackageLoad() {
+        // Not sending any data
+        const insightsConfig = {
+          duration: 634,
+          rawInsightsData: [],
+          customData: [],
+          viInsightsKeys: [],
+        };
+
+        let customInsightWidget = new CustomInsightsWidget(
+          "container",
+          {
+            width: 800,
+            height: 1000,
+          },
+          insightsConfig
+        );
+
+        customInsightWidget.render();
+      }
+    </script>
+    <script
+      src="https://unpkg.com/@azure/video-indexer-widgets"
+      onload="onPackageLoad()"
+    ></script>
+  </body>
+</html>

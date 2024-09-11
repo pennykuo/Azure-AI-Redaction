@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <h1>Video Indexer insights widget</h1>
+    <div id="container" class="widget-container"></div>
+    <script>
+      function onPackageLoad() {
+        const insightsConfig = {
+          duration: 634,
+          rawInsightsData: [],
+          customData: [],
+          viInsightsKeys: ["brands", "keywords", "scenes", "blocks"], // Take brands, keywords, scenes and blocks from video indexer
+          accountId: "00000000-0000-0000-0000-000000000000",
+          videoId: "c327efd5d7",
+          accessToken: "", // add access token if video is private
+          preset: "all", // select preset 'All'
+        };
+
+        let customInsightWidget = new CustomInsightsWidget(
+          "container",
+          {
+            width: 800,
+            height: 1000,
+          },
+          insightsConfig
+        );
+
+        customInsightWidget.render();
+      }
+    </script>
+    <script
+      src="https://unpkg.com/@azure/video-indexer-widgets"
+      onload="onPackageLoad()"
+    ></script>
+  </body>
+</html>

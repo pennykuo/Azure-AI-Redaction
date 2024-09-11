@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
+    <h1>Video Indexer insights widget</h1>
+    <div id="container" class="widget-container"></div>
+    <script>
+      function onPackageLoad() {
+          // Create widget config
+          const config = {
+            accountId: '00000000-0000-0000-0000-000000000000',
+            videoId: 'c327efd5d7',
+            accessToken: '' // Add access token only if your video is private
+          };
+          let widget = new window.vi.widgets.Insights(
+              'container',
+              {
+                  height: 780,
+                  width: 580
+              },
+              config
+          );
+  
+          widget.render();
+      }
+    </script>
+    <script src="https://unpkg.com/@azure/video-indexer-widgets@latest/dist/global.min.js" onload="onPackageLoad()"></script>
+  </body>
+</html>

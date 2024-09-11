@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <h1>Video Indexer insights widget</h1>
+    <div id="container" class="widget-container"></div>
+    <script>
+      function onPackageLoad() {
+        const customElement = {
+          id: 1,
+          text: "Custom Element",
+          instances: [
+            {
+              adjustedEnd: "0:02:37.644",
+              adjustedStart: "0:00:00",
+              end: "0:02:37.644",
+              start: "0:00:00",
+            },
+            {
+              adjustedEnd: "0:04:01.497",
+              adjustedStart: "0:03:39.322",
+              end: "0:04:01.497",
+              start: "0:03:39.322",
+            },
+            {
+              adjustedEnd: "0:05:00.968",
+              adjustedStart: "0:04:36.6",
+              end: "0:05:00.968",
+              start: "0:04:36.6",
+            },
+          ],
+        };
+
+        const customData = {
+          title: "My Data Example",
+          key: "myData",
+          presets: ["all", "captioning"], // When clicking captioning preset / all, the custom data will be selected
+          type: "capsule",
+          items: [customElement],
+        };
+
+        const insightsConfig = {
+          duration: 634,
+          rawInsightsData: [],
+          customData: [customData],
+          viInsightsKeys: [],
+          style: {
+            theme: "Dark",
+          },
+        };
+        let customInsightWidget = new CustomInsightsWidget(
+          "container",
+          {
+            width: 800,
+            height: 1000,
+          },
+          insightsConfig
+        );
+
+        customInsightWidget.render();
+      }
+    </script>
+    <script
+      src="https://unpkg.com/@azure/video-indexer-widgets"
+      onload="onPackageLoad()"
+    ></script>
+  </body>
+</html>

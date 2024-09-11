@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="VideoIndexerClient\obj\**" />
+    <EmbeddedResource Remove="VideoIndexerClient\obj\**" />
+    <None Remove="VideoIndexerClient\obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.11.4" />
+    <PackageReference Include="DotNetEnv" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.61.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="videos\" />
+  </ItemGroup>
+
+</Project>
